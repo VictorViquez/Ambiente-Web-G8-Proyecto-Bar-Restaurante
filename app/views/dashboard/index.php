@@ -2,28 +2,38 @@
 
 <div class="p-4 bg-light rounded shadow-sm">
     <h2>Bienvenido al sistema</h2>
-    <p>Este sistema cumple con los requerimientos del proyecto: MVC, PHP, jQuery, Bootstrap, MySQL, usuarios, autenticación, recuperación de contraseña y reservas.</p>
+    <p>
+        Hola bebes.
+    </p>
 
     <div class="row mt-4">
+
+     
         <div class="col-md-4 mb-3">
             <div class="card h-100">
                 <div class="card-body">
                     <h5>Nueva reserva</h5>
                     <p>Registrar una nueva reserva en el sistema.</p>
-                    <a href="/proyecto-final/public/index.php?route=reservas.create" class="btn btn-primary">Ir</a>
+                    <a href="<?= base_url('/index.php?route=reservas.create') ?>" class="btn btn-primary">
+                        Ir
+                    </a>
                 </div>
             </div>
         </div>
 
+    
         <div class="col-md-4 mb-3">
             <div class="card h-100">
                 <div class="card-body">
                     <h5>Ver reservas</h5>
                     <p>Consultar las reservas registradas.</p>
-                    <a href="/proyecto-final/public/index.php?route=reservas.list" class="btn btn-success">Ir</a>
+                    <a href="<?= base_url('/index.php?route=reservas.list') ?>" class="btn btn-success">
+                        Ir
+                    </a>
                 </div>
             </div>
         </div>
+
 
         <div class="col-md-4 mb-3">
             <div class="card h-100">
@@ -37,6 +47,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 

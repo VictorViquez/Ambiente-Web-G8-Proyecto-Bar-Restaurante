@@ -22,12 +22,12 @@ class ReservaController {
 
         if (empty($fecha) || empty($hora) || $personas <= 0) {
             set_flash('danger', 'Debe completar correctamente los datos de la reserva.');
-            redirect('/proyecto-final/public/index.php?route=reservas.create');
+            redirect(base_url('/index.php?route=reservas.create'));
         }
 
         $this->reserva->crear($usuario_id, $fecha, $hora, $personas, $comentario);
         set_flash('success', 'Reserva registrada correctamente.');
-        redirect('/proyecto-final/public/index.php?route=reservas.list');
+        redirect(base_url('/index.php?route=reservas.list'));
     }
 
     public function list() {
@@ -43,18 +43,18 @@ class ReservaController {
     public function updateStatus() {
         if ($_SESSION['user']['rol'] !== 'admin') {
             set_flash('danger', 'Acceso denegado.');
-            redirect('/proyecto-final/public/index.php?route=dashboard');
+            redirect(base_url('/index.php?route=dashboard'));
         }
 
         $id = (int)($_POST['id'] ?? 0);
         $estado = clean($_POST['estado'] ?? 'pendiente');
-        $permitidos = ['pendiente','aprobada','rechazada'];
+        $permitidos = ['pendiente', 'aprobada', 'rechazada'];
 
         if ($id > 0 && in_array($estado, $permitidos)) {
             $this->reserva->cambiarEstado($id, $estado);
             set_flash('success', 'Estado actualizado correctamente.');
         }
 
-        redirect('/proyecto-final/public/index.php?route=reservas.list');
+        redirect(base_url('/index.php?route=reservas.list'));
     }
 }

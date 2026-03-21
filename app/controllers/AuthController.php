@@ -20,7 +20,7 @@ class AuthController {
 
         if (empty($email) || empty($password)) {
             set_flash('danger', 'Debe completar todos los campos.');
-            redirect('/proyecto-final/public/index.php?route=login');
+            redirect(base_url('/index.php?route=login'));
         }
 
         $user = $this->usuario->buscarPorEmail($email);
@@ -34,11 +34,11 @@ class AuthController {
             ];
 
             set_flash('success', 'Bienvenido, ' . $user['nombre']);
-            redirect('/proyecto-final/public/index.php?route=dashboard');
+            redirect(base_url('/index.php?route=dashboard'));
         }
 
         set_flash('danger', 'Credenciales incorrectas.');
-        redirect('/proyecto-final/public/index.php?route=login');
+        redirect(base_url('/index.php?route=login'));
     }
 
     public function showRegister() {
@@ -53,32 +53,32 @@ class AuthController {
 
         if (empty($nombre) || empty($email) || empty($password) || empty($confirm)) {
             set_flash('danger', 'Todos los campos son obligatorios.');
-            redirect('/proyecto-final/public/index.php?route=register');
+            redirect(base_url('/index.php?route=register'));
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             set_flash('danger', 'Correo electrónico inválido.');
-            redirect('/proyecto-final/public/index.php?route=register');
+            redirect(base_url('/index.php?route=register'));
         }
 
         if ($password !== $confirm) {
             set_flash('danger', 'Las contraseñas no coinciden.');
-            redirect('/proyecto-final/public/index.php?route=register');
+            redirect(base_url('/index.php?route=register'));
         }
 
         if ($this->usuario->buscarPorEmail($email)) {
             set_flash('warning', 'Ese correo ya está registrado.');
-            redirect('/proyecto-final/public/index.php?route=register');
+            redirect(base_url('/index.php?route=register'));
         }
 
         $this->usuario->crear($nombre, $email, $password, 'cliente');
         set_flash('success', 'Registro exitoso. Ahora puede iniciar sesión.');
-        redirect('/proyecto-final/public/index.php?route=login');
+        redirect(base_url('/index.php?route=login'));
     }
 
     public function logout() {
         session_destroy();
-        redirect('/proyecto-final/public/index.php?route=login');
+        redirect(base_url('/index.php?route=login'));
     }
 
     public function showForgot() {
@@ -94,14 +94,15 @@ class AuthController {
             $expira = date('Y-m-d H:i:s', strtotime('+1 hour'));
             $this->usuario->guardarToken($email, $token, $expira);
 
+            
             file_put_contents(
                 __DIR__ . '/../../tmp_reset_link.txt',
-                'Enlace de recuperación: http://localhost/proyecto-final/public/index.php?route=reset&token=' . $token
+                'Enlace de recuperación: ' . base_url('/index.php?route=reset&token=' . $token)
             );
         }
 
         set_flash('info', 'Si el correo existe, se generó un enlace de recuperación.');
-        redirect('/proyecto-final/public/index.php?route=forgot');
+        redirect(base_url('/index.php?route=forgot'));
     }
 
     public function showReset() {
@@ -115,18 +116,18 @@ class AuthController {
 
         if ($password !== $confirm) {
             set_flash('danger', 'Las contraseñas no coinciden.');
-            redirect('/proyecto-final/public/index.php?route=reset&token=' . $token);
+            redirect(base_url('/index.php?route=reset&token=' . $token));
         }
 
         $user = $this->usuario->buscarPorToken($token);
 
         if (!$user) {
             set_flash('danger', 'Token inválido o expirado.');
-            redirect('/proyecto-final/public/index.php?route=forgot');
+            redirect(base_url('/index.php?route=forgot'));
         }
 
         $this->usuario->actualizarPassword($user['id'], $password);
         set_flash('success', 'Contraseña actualizada correctamente.');
-        redirect('/proyecto-final/public/index.php?route=login');
+        redirect(base_url('/index.php?route=login'));
     }
 }

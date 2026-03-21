@@ -5,7 +5,7 @@ function redirect($url) {
 }
 
 function base_url($path = '') {
-    $base = '/proyecto-final/public';
+    $base = '/Ambiente-Web-G8-Proyecto-Bar-Restaurante/public';
     return $base . $path;
 }
 
