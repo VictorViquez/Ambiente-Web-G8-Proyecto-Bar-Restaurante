@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema SC-502</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url('/css/styles.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('/style.css') ?>">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="<?= base_url('/index.php?route=dashboard') ?>">Sistema PHP MVC</a>
+        <a class="navbar-brand" href="<?= base_url('/index.php?route=dashboard') ?>">Bar/Restaurante SC-502</a>
 
         <div>
             <?php if (isset($_SESSION['user'])): ?>
