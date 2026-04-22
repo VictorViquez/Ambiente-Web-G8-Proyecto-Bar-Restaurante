@@ -3,7 +3,7 @@
 <div class="p-4 bg-light rounded shadow-sm">
     <h2>Bienvenido al sistema</h2>
     <p>
-        Hola bebes.
+        Bar/Restaurante.
     </p>
 
     <div class="row mt-4">
