@@ -71,7 +71,7 @@ class AuthController {
             redirect(base_url('/index.php?route=register'));
         }
 
-        $this->usuario->crear($nombre, $email, $password, 'cliente');
+        $this->usuario->crear($nombre, $email, $password, 'mesero');
         set_flash('success', 'Registro exitoso. Ahora puede iniciar sesión.');
         redirect(base_url('/index.php?route=login'));
     }

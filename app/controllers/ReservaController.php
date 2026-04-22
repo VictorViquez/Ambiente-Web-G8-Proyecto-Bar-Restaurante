@@ -1,4 +1,4 @@
-<?php
+<?php 
 require_once __DIR__ . '/../models/Reserva.php';
 require_once __DIR__ . '/../helpers/utils.php';
 
@@ -38,6 +38,19 @@ class ReservaController {
         }
 
         require_once __DIR__ . '/../views/reservas/list.php';
+    }
+
+    public function calendar() {
+        if ($_SESSION['user']['rol'] === 'admin') {
+            $reservas = $this->reserva->listarParaCalendario();
+        } else {
+            $todas = $this->reserva->listarParaCalendario();
+            $reservas = array_filter($todas, function ($r) {
+                return isset($r['id']) || true;
+            });
+        }
+
+        require_once __DIR__ . '/../views/reservas/calendar.php';
     }
 
     public function updateStatus() {

@@ -7,7 +7,7 @@ class Usuario {
         $this->conn = $db;
     }
 
-    public function crear($nombre, $email, $password, $rol = 'cliente') {
+    public function crear($nombre, $email, $password, $rol = 'mesero') {
         $sql = "INSERT INTO {$this->table} (nombre, email, password, rol) VALUES (:nombre, :email, :password, :rol)";
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute([

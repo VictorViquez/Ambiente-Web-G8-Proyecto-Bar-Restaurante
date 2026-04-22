@@ -6,7 +6,7 @@ CREATE TABLE usuarios (
     nombre VARCHAR(100) NOT NULL,
     email VARCHAR(120) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    rol ENUM('admin','cliente') NOT NULL DEFAULT 'cliente',
+    rol ENUM('admin','mesero') NOT NULL DEFAULT 'mesero',
     token_recuperacion VARCHAR(120) DEFAULT NULL,
     token_expira DATETIME DEFAULT NULL,
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP

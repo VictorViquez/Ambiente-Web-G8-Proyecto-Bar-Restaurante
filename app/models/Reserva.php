@@ -1,4 +1,4 @@
-<?php
+<?php 
 class Reserva {
     private $conn;
 
@@ -37,5 +37,15 @@ class Reserva {
             ':estado' => $estado,
             ':id' => $id
         ]);
+    }
+
+    public function listarParaCalendario() {
+        $sql = "SELECT r.id, r.fecha, r.hora, r.personas, r.estado, u.nombre, r.usuario_id
+                FROM reservas r
+                INNER JOIN usuarios u ON u.id = r.usuario_id
+                ORDER BY r.fecha ASC, r.hora ASC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

@@ -77,6 +77,11 @@ switch ($route) {
         require_login();
         $reservaController->updateStatus();
         break;
+    
+    case 'reservas.calendar':
+    require_login();
+    $reservaController->calendar();
+    break;
 
     default:
         echo 'Ruta no encontrada';
