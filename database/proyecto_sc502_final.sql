@@ -82,9 +82,7 @@ CREATE TABLE detalle_pedido (
 
 -- =====================================
 -- USUARIOS SEED
--- IMPORTANTE:
--- Después de importar, corré el UPDATE de passwords
--- para dejar a todos con 123456
+-- IMPORTANTE: Todos tienen password '123456' hasheado
 -- =====================================
 INSERT INTO usuarios (nombre, email, password, rol) VALUES
 ('Administrador', 'admin@correo.com', '$2y$12$/g7T3A8ZFQkDc0ZTd6Z2RehtLZRcpsifgs0KnFs.O51r.vNXZbe9y', 'admin'),
