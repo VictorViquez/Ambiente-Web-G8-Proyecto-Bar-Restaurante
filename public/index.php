@@ -11,6 +11,7 @@ require_once __DIR__ . '/../app/controllers/MesaController.php';
 require_once __DIR__ . '/../app/controllers/ProductoController.php';
 require_once __DIR__ . '/../app/controllers/PedidoController.php';
 require_once __DIR__ . '/../app/models/Pedido.php';
+require_once __DIR__ . '/../app/controllers/ReporteController.php';
 
 $db = (new Database())->getConnection();
 
@@ -20,6 +21,7 @@ $dashboardController = new DashboardController();
 $mesaController = new MesaController($db);
 $productoController = new ProductoController($db);
 $pedidoController = new PedidoController($db);
+$reporteController = new ReporteController($db);
 
 $route = $_GET['route'] ?? 'login';
 
@@ -168,6 +170,11 @@ case 'pedidos.addDetail':
 case 'pedidos.close':
     require_login();
     $pedidoController->close();
+    break;
+
+    case 'reportes.index':
+    require_login();
+    $reporteController->index();
     break;
     
     default:
