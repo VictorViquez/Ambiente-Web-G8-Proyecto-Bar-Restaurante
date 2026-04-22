@@ -87,10 +87,10 @@ CREATE TABLE detalle_pedido (
 -- para dejar a todos con 123456
 -- =====================================
 INSERT INTO usuarios (nombre, email, password, rol) VALUES
-('Administrador', 'admin@correo.com', '$2y$10$e0MYzXyjpJS7Pd0RVvHwHeFX0L5Q5e0siJmq9hw3rroWAt4E6C9Qa', 'admin'),
-('Victor Viquez', 'victorvh.vvh12@gmail.com', '$2y$10$e0MYzXyjpJS7Pd0RVvHwHeFX0L5Q5e0siJmq9hw3rroWAt4E6C9Qa', 'admin'),
-('Mesero Demo', 'mesero@correo.com', '$2y$10$e0MYzXyjpJS7Pd0RVvHwHeFX0L5Q5e0siJmq9hw3rroWAt4E6C9Qa', 'mesero'),
-('Prueba', 'prueba1@gmail.com', '$2y$10$e0MYzXyjpJS7Pd0RVvHwHeFX0L5Q5e0siJmq9hw3rroWAt4E6C9Qa', 'mesero');
+('Administrador', 'admin@correo.com', '$2y$12$/g7T3A8ZFQkDc0ZTd6Z2RehtLZRcpsifgs0KnFs.O51r.vNXZbe9y', 'admin'),
+('Victor Viquez', 'victorvh.vvh12@gmail.com', '$2y$12$/g7T3A8ZFQkDc0ZTd6Z2RehtLZRcpsifgs0KnFs.O51r.vNXZbe9y', 'admin'),
+('Mesero Demo', 'mesero@correo.com', '$2y$12$/g7T3A8ZFQkDc0ZTd6Z2RehtLZRcpsifgs0KnFs.O51r.vNXZbe9y', 'mesero'),
+('Prueba', 'prueba1@gmail.com', '$2y$12$/g7T3A8ZFQkDc0ZTd6Z2RehtLZRcpsifgs0KnFs.O51r.vNXZbe9y', 'mesero');
 
 -- =====================================
 -- MESAS SEED
