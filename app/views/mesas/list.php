@@ -16,7 +16,6 @@
             <table class="table table-bordered table-hover align-middle">
                 <thead class="table-dark">
                     <tr>
-                        <th>ID</th>
                         <th>Número de mesa</th>
                         <th>Capacidad</th>
                         <th>Estado</th>
@@ -29,7 +28,6 @@
                     <?php if (!empty($mesas)): ?>
                         <?php foreach ($mesas as $m): ?>
                             <tr>
-                                <td><?= $m['id'] ?></td>
                                 <td><?= $m['numero_mesa'] ?></td>
                                 <td><?= $m['capacidad'] ?></td>
                                 <td>
@@ -62,7 +60,7 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="<?= $_SESSION['user']['rol'] === 'admin' ? 5 : 4 ?>" class="text-center">
+                            <td colspan="<?= $_SESSION['user']['rol'] === 'admin' ? 4 : 3 ?>" class="text-center">
                                 No hay mesas registradas.
                             </td>
                         </tr>

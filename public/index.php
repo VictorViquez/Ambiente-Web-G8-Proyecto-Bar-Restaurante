@@ -8,6 +8,7 @@ require_once __DIR__ . '/../app/controllers/AuthController.php';
 require_once __DIR__ . '/../app/controllers/DashboardController.php';
 require_once __DIR__ . '/../app/controllers/ReservaController.php';
 require_once __DIR__ . '/../app/controllers/MesaController.php';
+require_once __DIR__ . '/../app/controllers/ProductoController.php';
 
 $db = (new Database())->getConnection();
 
@@ -15,6 +16,7 @@ $authController = new AuthController($db);
 $reservaController = new ReservaController($db);
 $dashboardController = new DashboardController();
 $mesaController = new MesaController($db);
+$productoController = new ProductoController($db);
 
 $route = $_GET['route'] ?? 'login';
 
@@ -104,7 +106,37 @@ switch ($route) {
     require_login();
     $mesaController->status();
     break;
+    
+    case 'productos.list':
+    require_login();
+    $productoController->list();
+    break;
 
+case 'productos.create':
+    require_login();
+    $productoController->createView();
+    break;
+
+case 'productos.store':
+    require_login();
+    $productoController->store();
+    break;
+
+case 'productos.edit':
+    require_login();
+    $productoController->editView();
+    break;
+
+case 'productos.update':
+    require_login();
+    $productoController->update();
+    break;
+
+case 'productos.status':
+    require_login();
+    $productoController->status();
+    break;
+    
     default:
         echo 'Ruta no encontrada';
         break;
