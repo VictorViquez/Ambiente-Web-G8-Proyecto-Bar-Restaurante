@@ -1,0 +1,1 @@
+Enlace de recuperación: /Ambiente-Web-G8-Proyecto-Bar-Restaurante/public/index.php?route=reset&token=2e2d793a295f4698b84f7fad58ab9632

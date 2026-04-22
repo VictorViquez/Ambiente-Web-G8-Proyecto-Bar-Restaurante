@@ -9,6 +9,8 @@ require_once __DIR__ . '/../app/controllers/DashboardController.php';
 require_once __DIR__ . '/../app/controllers/ReservaController.php';
 require_once __DIR__ . '/../app/controllers/MesaController.php';
 require_once __DIR__ . '/../app/controllers/ProductoController.php';
+require_once __DIR__ . '/../app/controllers/PedidoController.php';
+require_once __DIR__ . '/../app/models/Pedido.php';
 
 $db = (new Database())->getConnection();
 
@@ -17,6 +19,7 @@ $reservaController = new ReservaController($db);
 $dashboardController = new DashboardController();
 $mesaController = new MesaController($db);
 $productoController = new ProductoController($db);
+$pedidoController = new PedidoController($db);
 
 $route = $_GET['route'] ?? 'login';
 
@@ -135,6 +138,36 @@ case 'productos.update':
 case 'productos.status':
     require_login();
     $productoController->status();
+    break;
+
+case 'pedidos.list':
+    require_login();
+    $pedidoController->list();
+    break;
+
+case 'pedidos.create':
+    require_login();
+    $pedidoController->createView();
+    break;
+
+case 'pedidos.store':
+    require_login();
+    $pedidoController->store();
+    break;
+
+case 'pedidos.edit':
+    require_login();
+    $pedidoController->editView();
+    break;
+
+case 'pedidos.addDetail':
+    require_login();
+    $pedidoController->addDetail();
+    break;
+
+case 'pedidos.close':
+    require_login();
+    $pedidoController->close();
     break;
     
     default:
