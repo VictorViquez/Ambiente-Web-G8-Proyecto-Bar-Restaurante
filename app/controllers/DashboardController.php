@@ -10,7 +10,7 @@ class DashboardController {
 
         // Activá en true conforme vayas terminando cada módulo
         $modulo_calendario = true;
-        $modulo_mesas = false;
+        $modulo_mesas = true;
         $modulo_productos = false;
         $modulo_pedidos = false;
         $modulo_reportes = false;

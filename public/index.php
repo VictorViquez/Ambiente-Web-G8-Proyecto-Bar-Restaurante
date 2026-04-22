@@ -7,12 +7,14 @@ require_once __DIR__ . '/../app/helpers/auth.php';
 require_once __DIR__ . '/../app/controllers/AuthController.php';
 require_once __DIR__ . '/../app/controllers/DashboardController.php';
 require_once __DIR__ . '/../app/controllers/ReservaController.php';
+require_once __DIR__ . '/../app/controllers/MesaController.php';
 
 $db = (new Database())->getConnection();
 
 $authController = new AuthController($db);
 $reservaController = new ReservaController($db);
 $dashboardController = new DashboardController();
+$mesaController = new MesaController($db);
 
 $route = $_GET['route'] ?? 'login';
 
@@ -81,6 +83,26 @@ switch ($route) {
     case 'reservas.calendar':
     require_login();
     $reservaController->calendar();
+    break;
+    
+    case 'mesas.list':
+    require_login();
+    $mesaController->list();
+    break;
+
+    case 'mesas.create':
+    require_login();
+    $mesaController->createView();
+    break;
+
+    case 'mesas.store':
+    require_login();
+    $mesaController->store();
+    break;
+
+    case 'mesas.status':
+    require_login();
+    $mesaController->status();
     break;
 
     default:
